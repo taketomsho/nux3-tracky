@@ -28,12 +28,13 @@
       <v-window v-model="tab">
         <v-window-item v-for="item in items" :key="item" :value="item">
           <v-card flat>
-            <v-card-text v-text="text"></v-card-text>
+            <v-card-text v-text="calcurated"></v-card-text>
           </v-card>
         </v-window-item>
       </v-window>
     </v-card>
   </div>
+  <p>{{ calcurated }}</p>
 </template>
 
 <script setup>
@@ -47,6 +48,6 @@ const items = [
   '記事の新しさ',
 ];
 const props = defineProps({
-  text: String,
+  calcurated: Object,
 });
 </script>

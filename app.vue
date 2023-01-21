@@ -22,7 +22,7 @@
   </v-form>
   <v-container>
     <circular v-if="status === 'processing'" />
-    <dashboard :text="result" v-if="status === 'completed'" />
+    <dashboard :calcurated="result" v-if="status === 'completed'" />
   </v-container>
 </template>
 
