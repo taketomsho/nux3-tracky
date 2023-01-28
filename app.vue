@@ -22,11 +22,13 @@
   </v-form>
   <v-container>
     <circular v-if="status === 'processing'" />
-    <dashboard :calcurated="result" v-if="status === 'completed'" />
+    <dashboard v-bind:calcurated="result" v-if="status === 'completed'" />
+
   </v-container>
 </template>
 
 <script setup>
+
 const keyword = ref('');
 const url = ref('');
 const valid = ref(false);
