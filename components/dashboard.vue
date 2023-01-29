@@ -26,7 +26,7 @@ const tab = ref(null);
 const items = [
   '総合評価',
   '文字数',
-  'キーワード',
+  '画像',
   '見出し',
   'リンク',
   '記事の新しさ',
@@ -37,6 +37,16 @@ const props = defineProps({
 });
 
 const calc = JSON.parse(props.calcurated.value)
+const titledata = calc.title.data
+const metadata = calc.meta.data
+const bodydata = calc.body.data
+const imgdata = calc.img.data
+const h2data = calc.h2.data
+const h3data = calc.h3.data
+const h4data = calc.h4.data
+const inlinkdata = calc.inner_link.data
+const outlinkdata = calc.outer_link.data
+
 
 const chartData = {
     //データ項目のラベル
@@ -80,28 +90,6 @@ const chartOptions = {
   }
 }
 
-const boxData = {
-  labels: ['toto'],
-    datasets: [
-      {
-        type: 'boxplot',
-        data: [calc.title.data],
-      },
-    ],
-}
-
-const boxOptions = {
-  responsive: true,
-  indexAxis: 'y',
-  legend: {
-    position: 'top',
-  },
-  title: {
-    display: true,
-    text: 'Chart.js Box Plot Chart',
-  },
-}
-
 </script>
 
 
@@ -132,7 +120,7 @@ const boxOptions = {
               文字数
             </v-tab>
             <v-tab :value="3">
-              キーワード
+              画像
             </v-tab>
             <v-tab :value="4">
               見出し
@@ -150,7 +138,7 @@ const boxOptions = {
       <v-window v-model="tab">
         <v-window-item :value="1">
           <v-card flat>
-            <v-card-text v-text="val"></v-card-text>
+            <v-card-text v-text=""></v-card-text>
 
             <Radar
             id="my-chart-id"
@@ -159,59 +147,65 @@ const boxOptions = {
             />
           </v-card>
         </v-window-item>
+
         <v-window-item :value="2">
           <v-card flat>
-            <v-card-text v-text="val"></v-card-text>
+            <v-card-text v-text=""></v-card-text>
 
-            <BoxPlot
-              id="BoxPlot"
-              :options="boxOptions"
-              :data="boxData"
+            <Boxplotchart
+              v-bind:boxdata="calc.title.data"
+            />
+            <Boxplotchart
+              v-bind:boxdata="calc.meta.data"
+            />
+            <Boxplotchart
+              v-bind:boxdata="calc.body.data"
             />
           </v-card>
         </v-window-item>
         <v-window-item :value="3">
           <v-card flat>
-            <v-card-text v-text="val"></v-card-text>
+            <v-card-text v-text=""></v-card-text>
 
-            <Radar
-            id="my-chart-id"
-            :options="chartOptions"
-            :data="chartData"
+            <Boxplotchart
+              v-bind:boxdata="calc.img.data"
             />
 
           </v-card>
         </v-window-item>
         <v-window-item :value="4">
           <v-card flat>
-            <v-card-text v-text="val"></v-card-text>
+            <v-card-text v-text=""></v-card-text>
 
-            <BoxPlot
-              id="BoxPlot"
-              :options="boxOptions"
-              :data="boxData"
+            <Boxplotchart
+              v-bind:boxdata="calc.h2.data"
+            />
+            <Boxplotchart
+              v-bind:boxdata="calc.h3.data"
+            />
+            <Boxplotchart
+              v-bind:boxdata="calc.h4.data"
             />
           </v-card>
         </v-window-item>
         <v-window-item :value="5">
           <v-card flat>
-            <v-card-text v-text="val"></v-card-text>
+            <v-card-text v-text=""></v-card-text>
 
-            <Radar
-            id="my-chart-id"
-            :options="chartOptions"
-            :data="chartData"
+            <Boxplotchart
+              v-bind:boxdata="calc.inner_link.data"
+            />
+            <Boxplotchart
+              v-bind:boxdata="calc.outer_link.data"
             />
           </v-card>
         </v-window-item>
         <v-window-item :value="6">
           <v-card flat>
-            <v-card-text v-text="val"></v-card-text>
+            <v-card-text v-text=""></v-card-text>
 
-            <BoxPlot
-              id="BoxPlot"
-              :options="boxOptions"
-              :data="boxData"
+            <Boxplotchart
+              v-bind:boxdata="calc.freshness.data"
             />
           </v-card>
         </v-window-item>
