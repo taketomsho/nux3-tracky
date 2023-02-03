@@ -1,10 +1,6 @@
 <script setup>
-import { Radar,createTypedChart } from 'vue-chartjs'
+import { Radar } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale,LineElement,PointElement,RadialLinearScale  } from 'chart.js'
-import {
-  BoxPlotController,
-  BoxAndWiskers,
-} from "@sgratzl/chartjs-chart-boxplot";
 
 ChartJS.register(
   Title, 
@@ -16,37 +12,16 @@ ChartJS.register(
   CategoryScale, 
   LinearScale,
   RadialLinearScale,
-  BoxPlotController,
-  BoxAndWiskers,
 )
 
-const BoxPlot = createTypedChart('boxplot', BoxPlotController)
 
 const tab = ref(null);
-const items = [
-  '総合評価',
-  '文字数',
-  '画像',
-  '見出し',
-  'リンク',
-  '記事の新しさ',
-];
+const advice = "がんばれ！"
 const props = defineProps({
   calcurated: Object,
-  // calcurated: String,
 });
 
 const calc = JSON.parse(props.calcurated.value)
-const titledata = calc.title.data
-const metadata = calc.meta.data
-const bodydata = calc.body.data
-const imgdata = calc.img.data
-const h2data = calc.h2.data
-const h3data = calc.h3.data
-const h4data = calc.h4.data
-const inlinkdata = calc.inner_link.data
-const outlinkdata = calc.outer_link.data
-
 
 const chartData = {
     //データ項目のラベル
@@ -71,7 +46,6 @@ const chartData = {
             hitRadius: 5,
             //グラフのデータ
             data: calc.score.data
-            // data:[ 85.88571428571429, 62, 84.75, 83, 91.4, 100 ]
         }
     ]
 }
@@ -138,7 +112,7 @@ const chartOptions = {
       <v-window v-model="tab">
         <v-window-item :value="1">
           <v-card flat>
-            <v-card-text v-text=""></v-card-text>
+            <v-card-text v-text="advice"></v-card-text>
 
             <Radar
             id="my-chart-id"
@@ -150,7 +124,7 @@ const chartOptions = {
 
         <v-window-item :value="2">
           <v-card flat>
-            <v-card-text v-text=""></v-card-text>
+            <v-card-text v-text="advice"></v-card-text>
 
             <Boxplotchart
               v-bind:boxdata="calc.title.data"
@@ -165,7 +139,7 @@ const chartOptions = {
         </v-window-item>
         <v-window-item :value="3">
           <v-card flat>
-            <v-card-text v-text=""></v-card-text>
+            <v-card-text v-text="advice"></v-card-text>
 
             <Boxplotchart
               v-bind:boxdata="calc.img.data"
@@ -175,7 +149,7 @@ const chartOptions = {
         </v-window-item>
         <v-window-item :value="4">
           <v-card flat>
-            <v-card-text v-text=""></v-card-text>
+            <v-card-text v-text="advice"></v-card-text>
 
             <Boxplotchart
               v-bind:boxdata="calc.h2.data"
@@ -202,7 +176,7 @@ const chartOptions = {
         </v-window-item>
         <v-window-item :value="6">
           <v-card flat>
-            <v-card-text v-text=""></v-card-text>
+            <v-card-text v-text="advice"></v-card-text>
 
             <Boxplotchart
               v-bind:boxdata="calc.freshness.data"

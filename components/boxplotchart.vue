@@ -30,6 +30,7 @@ const chartData = {
   labels: ['toto'],
     datasets: [
       {
+        label: 'Dataset 1',
         type: 'boxplot',
         data: [props.boxdata],
       },
