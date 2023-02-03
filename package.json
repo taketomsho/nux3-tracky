@@ -11,8 +11,11 @@
     "nuxt": "^3.0.0"
   },
   "dependencies": {
+    "@sgratzl/chartjs-chart-boxplot": "^4.1.1",
+    "chart.js": "^4.2.0",
     "mdi": "^2.2.43",
     "sass": "^1.57.1",
+    "vue-chartjs": "^5.2.0",
     "vuetify": "^3.1.2"
   }
 }
