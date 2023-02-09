@@ -70,7 +70,7 @@ const chartOptions = {
 <template>
   <div>
     <v-card color="basil">
-      <v-toolbar color="primary">
+      <v-toolbar color="#F7DDBA">
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
         <v-toolbar-title>実行結果</v-toolbar-title>

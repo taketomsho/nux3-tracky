@@ -1,23 +1,24 @@
 
 
 <template>
-  <v-app>
-  <!-- ヘッダー部分 -->
-  <header class="header02">
-    <nav class="header02-nav">
-        <ul class="header02-list">
-            <li class="header02-item"><a href="">私たちの特徴</a></li>
-            <li class="header02-item"><a href="">サービス</a></li>
-            <li class="header02-item"><a href="">実績</a></li>
-            <li class="header02-item"><a href="">ブログ</a></li>
-            <li class="header02-item"><a href="">会社概要</a></li>
-            <li class="header02-item header02-item--contact"><a href="">お問い合わせ</a></li>
-        </ul>
-    </nav>
-</header>
   
+<v-app>
+    <!-- ヘッダー部分 -->
+    <v-app-bar theme="light">
+      <v-btn
+        to=""
+      >HOME</v-btn>
+      <v-spacer></v-spacer>
+
+      <v-btn
+        href="https://wwcorp.co.jp/contact/"
+      >お問い合わせ</v-btn>
+      
+    </v-app-bar>
+      
+
     <!-- メインコンテンツ -->
-    <v-content>
+    <v-main>
     <v-container class="text-center">
       <h1 class="my-5">記事分析AI Tracky</h1>
       <p class="title_blow mb-5">たった1分であなたの記事の改善点が分かる「AI SEOツール」！</p>
@@ -58,19 +59,16 @@
           </v-row>
       </v-container>
           
-        
-    
     <v-container>
       <circular v-if="status === 'processing'" />
       <dashboard v-bind:calcurated="result" v-if="status === 'completed'" />
 
     </v-container>
-  </v-content>
+  </v-main>
   </v-app>
 </template>
 
 <script setup>
-  
 
 const keyword = ref('');
 const url = ref('');
