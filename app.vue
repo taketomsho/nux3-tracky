@@ -1,48 +1,76 @@
-<template>
-  <div>
-    
-  </div>
-  <div class="container text-center">
-    <h1 class="my-5">記事分析AI Tracky</h1>
-    <p class="title_blow mb-5">たった1分であなたの記事の改善点が分かる「AI SEOツール」！</p>
-  </div>
-  
-  <v-form ref="form" v-model="valid" lazy-validation>
-    <div class="d-flex justify-start">
-    <v-container>
-      <p class="my-3 text-center">あなたの記事の順位を上げるために必要なポイントをAIが洗い出します</p>
-      <v-col>
-      <v-text-field
-        v-model="keyword"
-        :rules="keywordRules"
-        label="keyword"
-        required
-      ></v-text-field>
-      <v-text-field
-        v-model="url"
-        :rules="urlRules"
-        label="url"
-        required
-      ></v-text-field>
-      <v-row class="justify-center mt-2">
-      <v-btn variant="tonal" @click="analyze"> 分析開始 </v-btn>
-      </v-row>
-      </v-col>
-      <p class="my-5 text-center">※少々分析にお時間がかかる場合がございます。</p>
-    </v-container>
-    <v-container>
-      <img src="~/assets/image/tracky_service_demo.png">
-    </v-container>
-  </div>
-  </v-form>
-  <v-container>
-    <circular v-if="status === 'processing'" />
-    <dashboard v-bind:calcurated="result" v-if="status === 'completed'" />
 
-  </v-container>
+
+<template>
+  <v-app>
+  <!-- ヘッダー部分 -->
+  <header class="header02">
+    <nav class="header02-nav">
+        <ul class="header02-list">
+            <li class="header02-item"><a href="">私たちの特徴</a></li>
+            <li class="header02-item"><a href="">サービス</a></li>
+            <li class="header02-item"><a href="">実績</a></li>
+            <li class="header02-item"><a href="">ブログ</a></li>
+            <li class="header02-item"><a href="">会社概要</a></li>
+            <li class="header02-item header02-item--contact"><a href="">お問い合わせ</a></li>
+        </ul>
+    </nav>
+</header>
+  
+    <!-- メインコンテンツ -->
+    <v-content>
+    <v-container class="text-center">
+      <h1 class="my-5">記事分析AI Tracky</h1>
+      <p class="title_blow mb-5">たった1分であなたの記事の改善点が分かる「AI SEOツール」！</p>
+    </v-container>
+    
+    <v-container>
+          <v-row>
+            <v-col cols="12" sm="6">
+                <v-container>
+                  <v-form ref="form" v-model="valid" lazy-validation>
+                  <p class="my-3 text-center">あなたの記事の順位を上げるために必要なポイントをAIが洗い出します</p>
+                  <v-col>
+                  <v-text-field
+                    v-model="keyword"
+                    :rules="keywordRules"
+                    label="keyword"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="url"
+                    :rules="urlRules"
+                    label="url"
+                    required
+                  ></v-text-field>
+                  <v-row class="justify-center mt-2">
+                    <v-btn variant="tonal" @click="analyze"> 分析開始 </v-btn>
+                  </v-row>
+                  </v-col>
+                  <p class="my-5 text-center">※少々分析にお時間がかかる場合がございます。</p>
+                </v-form>
+                </v-container>
+            </v-col>
+            <v-col cols="12" sm="6">
+              <v-container class="my-3 justify-center">
+                <img src="~/assets/image/tracky_service_demo.png" width="300">
+              </v-container>
+            </v-col>
+          </v-row>
+      </v-container>
+          
+        
+    
+    <v-container>
+      <circular v-if="status === 'processing'" />
+      <dashboard v-bind:calcurated="result" v-if="status === 'completed'" />
+
+    </v-container>
+  </v-content>
+  </v-app>
 </template>
 
 <script setup>
+  
 
 const keyword = ref('');
 const url = ref('');
@@ -81,7 +109,7 @@ async function analyze() {
  h1 {
   position: relative;
   padding: 1rem 2rem calc(1rem + 10px);
-  background: #fff100;
+  background: #F7DDBA;
 }
 
 h1:before {
@@ -119,6 +147,27 @@ h1:before {
 }
 .title_blow {
   font-size: 25px;
+}
+
+/* ------------------------------ */
+/* ヘッダー */
+/* ------------------------------ */
+
+.header02 {
+  padding: 16px 24px;
+  background-color: #fafafa;
+}
+
+.header02-list {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 24px;
+}
+ul {
+  list-style: none;
 }
 
 </style>
