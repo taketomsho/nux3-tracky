@@ -1,22 +1,11 @@
 
 
 <template>
-  
 <v-app>
-    <!-- ヘッダー部分 -->
-    <v-app-bar theme="light">
-      <v-btn
-        to=""
-      >HOME</v-btn>
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://wwcorp.co.jp/contact/"
-      >お問い合わせ</v-btn>
-      
-    </v-app-bar>
-      
-
+  <!-- ヘッダー部分 -->
+    <Header />
+    <NuxtPage />
+    
     <!-- メインコンテンツ -->
     <v-main>
     <v-container class="text-center">
