@@ -1,5 +1,4 @@
 <template>
-  <!-- ヘッダー部分 -->
     <!-- メインコンテンツ -->
     <v-main>
     <v-container class="text-center">
