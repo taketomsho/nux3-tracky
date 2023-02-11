@@ -1,7 +1,4 @@
 <template>
-    <v-app>
-        
-      <Header />
         <v-main>
         <v-container class="text-center">
             <h1 class="my-5">Trackyとは</h1>
@@ -64,6 +61,4 @@
           </ul>
       </v-container>
     </v-main>
-    <Footer />
-    </v-app>
 </template>

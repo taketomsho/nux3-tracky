@@ -1,7 +1,7 @@
-
-
 <template>
   <v-app>
-    <NuxtPage />
+    <Header />
+      <NuxtPage />
+    <Footer />
   </v-app>
 </template>
