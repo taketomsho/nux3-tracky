@@ -4,7 +4,7 @@
     <v-progress-circular
       :size="300"
       :width="7"
-      color="purple"
+      color="#F7DDBA"
       indeterminate
     ></v-progress-circular>
   </div>
